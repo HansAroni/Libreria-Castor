@@ -29,6 +29,16 @@ let stockRestante1;
 let stockRestante2;
 let stockRestante3;
 
+// Función para ahorrar codigo
+function stockInsuficiente(stock){
+    alert("No tenemos stock suficiente para ese producto, puede comprar hasta " + stock + "unidades")
+}
+function stockSuficiente(stock1, precio, producto){
+    stock1 -= cantidadCompra;
+    alert("El total de su compra es de $" + cantidadCompra * precio);
+    console.log("Stock Restante es: " + producto + stock1);
+}
+
 //Preguntamos al usuario cuantos productos diferentes quiere comprar
 let cantidadProductosDistintos = parseInt(prompt("Por favor, ingrese la cantidad de productos distintos a adquirir"));
 
@@ -40,29 +50,32 @@ for(let i = 0; i < cantidadProductosDistintos; i++){
 
     //Si contamos con el producto, luego pedimos cantidad de compra y devuelve el monto total
     if (productoElegido == producto1){
-        let cantidadCompra = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
+        cantidadCompra = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
         if (cantidadCompra <= stockProducto1) {
-            stockRestante1 = stockProducto1 - cantidadCompra;
-            alert("El total de su compra es de $" + cantidadCompra * precioProducto1);
-            console.log("Stock Restante Reglas: " + stockRestante1);
+        stockSuficiente(stockProducto1, precioProducto1, stockProducto1)
+        }
+        else{
+            stockInsuficiente(stockProducto1)
         }
     }
     
     else if (productoElegido == producto2){
-        let cantidadCompra = prompt("Por favor, también ingrese la cantidad de compra");
+        cantidadCompra = prompt("Por favor, también ingrese la cantidad de compra");
         if (cantidadCompra <= stockProducto2) {
-            stockRestante2 = stockProducto2 - cantidadCompra;
-            alert("El total de su compra es de $" + cantidadCompra * precioProducto2);
-            console.log("Stock restante Cartucheras: " + stockRestante2);
+        stockSuficiente(stockProducto2, precioProducto2, stockProducto2)
+        }
+        else{
+            stockInsuficiente(stockProducto2)
         }
     }
     
     else if (productoElegido == producto3){
-        let cantidadCompra = prompt("Por favor, también ingrese la cantidad de compra");
+        cantidadCompra = prompt("Por favor, también ingrese la cantidad de compra");
         if (cantidadCompra <= stockProducto3) {
-            stockRestante3 = stockProducto3 - cantidadCompra;
-            alert("El total de su compra es de $" + cantidadCompra * precioProducto3);
-            console.log("Stock restante Cuadernos: " + stockRestante3);
+            stockSuficiente(stockProducto3, precioProducto3, stockProducto3)
+        }
+        else{
+            stockInsuficiente(stockProducto3)
         }
     }
     
