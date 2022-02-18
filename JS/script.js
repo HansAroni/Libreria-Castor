@@ -29,6 +29,28 @@ let stockRestante1;
 let stockRestante2;
 let stockRestante3;
 
+// Menu para que el cliente eliga el producto
+let opcion = prompt("Menu  \n1 - Ver productos \n2 - Saludos  \nESC - Salir")
+
+switch(opcion){
+    case "1":
+        listarProductos();
+        break;
+    case "2":
+        saludar("Bienvenido a");
+        break;
+    case "ESC":
+        saludar("Gracias por visitar ")
+        break;
+    default:
+        alert("Opción Incorrecta")
+}
+function saludar(saludo){
+    alert(saludo + " nuestra pagina")
+}
+function listarProductos() {
+    alert("Estos son nuestros productos:  \n1- " + producto1 + " \n2- " + producto2 +  " \n3- " + producto3)
+}
 // Función para ahorrar codigo
 function stockInsuficiente(stock){
     alert("No tenemos stock suficiente para ese producto, puede comprar hasta " + stock + "unidades")
