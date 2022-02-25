@@ -70,3 +70,11 @@ for (let i = 0; i < cantidadProductosDistintos; i++){
 //Metodo para verificar por alert si tenemos determinado producto en nuestro array
 let chequearProducto = prompt("Verifique si tenemos el producto")
 alert(allProducts.includes(chequearProducto))
+
+
+
+
+
+
+
+
