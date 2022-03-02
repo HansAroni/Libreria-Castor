@@ -28,22 +28,30 @@ let cantidadCompra;
 let stockRestante1;
 let stockRestante2;
 let stockRestante3;
+let precioTotalVenta = 0;
+
+menu()
 
 // Menu para que el cliente eliga el producto
+function menu () {
 let opcion = prompt("Menu  \n1 - Ver productos \n2 - Saludos  \nESC - Salir")
 
 switch(opcion){
     case "1":
         listarProductos();
+        comprarProductos();
         break;
     case "2":
         saludar("Bienvenido a");
+        menu();
         break;
     case "ESC":
         saludar("Gracias por visitar ")
         break;
     default:
-        alert("Opción Incorrecta")
+        alert("Opción Incorrecta");
+        menu();
+}
 }
 function saludar(saludo){
     alert(saludo + " nuestra pagina")
@@ -57,10 +65,13 @@ function stockInsuficiente(stock){
 }
 function stockSuficiente(stock1, precio, producto){
     stock1 -= cantidadCompra;
+    precioTotalVenta += cantidadCompra * precio;
     alert("El total de su compra es de $" + cantidadCompra * precio);
     console.log("Stock Restante es: " + producto + stock1);
 }
 
+
+function comprarProductos (){
 //Preguntamos al usuario cuantos productos diferentes quiere comprar
 let cantidadProductosDistintos = parseInt(prompt("Por favor, ingrese la cantidad de productos distintos a adquirir"));
 
@@ -99,6 +110,7 @@ for(let i = 0; i < cantidadProductosDistintos; i++){
         else{
             stockInsuficiente(stockProducto3)
         }
+        alert ("Gracias por su compra")
     }
     
     //Si no contamos con el producto o stock disponible, mostramos este mensaje al usuario indicando qué productos puede elegir
@@ -106,6 +118,8 @@ for(let i = 0; i < cantidadProductosDistintos; i++){
         alert("No contamos con ese producto o no tenemos stock disponible. Por favor elija entre Regla, Cartuchera o Cuaderno");
     }
 }
+}
+
 
 
 
