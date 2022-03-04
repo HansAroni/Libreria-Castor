@@ -27,6 +27,14 @@ const accesorios = [
     {nombre: "Sacapuntas", precio: 300},
 ]
 
+//Repuestos
+const repuestos = [
+    {id: 1, nombre: "Hojas de repuesto", precio: 100},
+    {id: 2, nombre: "Marcadores", precio: 100},
+    {id: 3, nombre: "Folios", precio: 20},
+    {id: 4, nombre: "Clips", precio: 40},
+]
+
 // Funciones para ahorrar codigo
 function stockSuficiente(cantidad, precio){
     alert("El total de su compra es de $" + cantidad * precio);
@@ -78,3 +86,28 @@ console.log(busqueda)
 //Encontrar si tenemos el accesorio con filter
 const filtrar = accesorios.filter((el) => el.precio <= 200)
 console.log(filtrar)
+
+//DOM
+let h1 = document.getElementById("nombreLibreria");
+console.log(h1.innerHTML);
+
+let marca = document.getElementsByClassName("marca");
+console.log(marca[0].innerHTML);
+console.log(marca[1].innerHTML);
+console.log(marca[2].innerHTML);
+
+let subtitulo = document.getElementById("subtitulo");
+console.log(subtitulo.innerText);
+subtitulo.innerText = subtitulo.innerText + " - Que estabas buscando hoy, " + saludarUsuario + "?";
+
+let spareparts = document.getElementById("spareparts");
+spareparts.innerText = "REPUESTOS CON STOCK";
+
+for (const repuesto of repuestos) {
+let contenedor = document.createElement("div");
+contenedor.innerHTML = `<p> Nro ID: ${repuesto.id}</p>
+                            <p> Nombre Repuesto: ${repuesto.nombre}</p>
+                            <p> Costo: $ ${repuesto.precio}</p>
+                            <br>`;
+document.body.appendChild(contenedor);
+}
