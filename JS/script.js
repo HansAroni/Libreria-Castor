@@ -111,3 +111,10 @@ contenedor.innerHTML = `<p> Nro ID: ${repuesto.id}</p>
                             <br>`;
 document.body.appendChild(contenedor);
 }
+
+let subs = document.getElementsByClassName("form-control")[0];
+subs.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        alert("Se ha suscrito a nuestro Newsletter con éxito " + saludarUsuario)
+    }
+});
